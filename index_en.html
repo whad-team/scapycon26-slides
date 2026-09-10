@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>We Have a Demo: wireless attacks and research made easy</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white.css">
+        <link rel="stylesheet" href="dist/sstic.css">
+        <link rel="stylesheet" href="dist/fa/css/all.min.css"
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&display=swap" rel="stylesheet">
+        <style>
+
+.doto-900{
+  font-family: "Doto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+  font-variation-settings:
+    "ROND" 0;
+}
+
+        </style>
+	</head>
+	<body>
+        <div id="logos">
+            <img src="images/insa.webp"/>
+            <img src="images/laas-cnrs.png"/>
+            <img src="images/qb-logo.png"/>
+        </div>
+
+        <div class="healthbar doto-900"></div>
+
+		<div class="reveal">
+			<div class="slides">
+
+                <!-- Title slide -->
+				<section class="full-logos" data-background-image="images/lego.png">
+                    <h1>W<small style="vertical-align: baseline;">e</small> H<small  style="vertical-align:
+                            baseline;">ave</small> A D<small  style="vertical-align: baseline;">emo</small></h1>
+                    <h4><small>a wireless protocol hacking framework</small></h4>
+                    <span class="authors">Romain Cayre <span class="sep">+</span> Damien Cauquil 
+                    <img src="images/scapycon.png" style="width: 200px; vertical-align:middle; padding-bottom: 10px;"><br>
+                        <br><br>
+                </section>
+
+                <!-- Who are we ? -->
+				<section>
+                    <h2>/who</h2><br>
+                    <ul style="list-style-type: none;">
+                        <li><u>Romain Cayre</u></span>
+                            <ul style="padding-left: 30px;">
+                                <li>Author of <em>Mirage</em>, <em>WazaBee</em> &amp; <a href="https://whad.io">WHAD</a></li>
+                                <li>Teaching cybersecurity at <b>INSA Toulouse</b></li>
+                            </ul>
+                        </li><br>
+                        <li><u>Damien Cauquil</u></span>
+                            <ul style="padding-left: 30px;">
+                                <li>Author of <em>Btlejack</em>, <em>BumbleBee</em> &amp; <a href="https://whad.io">WHAD</a></li>
+                                <li>Security engineer at <b>Quarkslab</b></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Motivations -->
+                <section>
+                    <h2>Let's talk a bit about <em>WHAD</em>...</h2><br>
+                    <div style="display: flex; width: 100%; height: 70%; align-items: center;">
+                        <img src="images/tools/whad.jpg" id="whad_frag" style="flex-shrink:0; padding-right: 1em; width: 300px;"/>
+                        <div style="width: 100%;">
+                            <ul style="width: 100%;">
+                                <li><b><u>W</u></b>ireless <b><u>HA</u></b>cking for <b><u><b>D</b></u>ummies</b> 🤔 <ul style="font-size: smaller;">
+                                <li>Unified <em>Host/Hardware</em> protocol</li>
+                                <li>Python API + <em>off-the-shelf tools</em></li>
+                                <li>Development started in <b>2021</b>...</li>
+                                <li>Project released in <b>2024</b></li>
+                            </ul></li><br>
+                            </ul>
+                        </div>
+                    </div>
+                    <a href="https://whad.io">https://whad.io</a>
+                </section>
+
+                <!-- video hook -->
+                <section>
+                    <h2>Pwning with WHAD</h2>
+                    <video controls data-autoplay>
+                        <source src="videos/video-hook.mp4" type="video/mp4"/>
+                    </video>
+                </section>
+
+                <section>
+                    <h2>/why</h2>
+                    <ul style="list-style-type: none;">
+                        <li class="r-stack">
+                            <div class="fragment  current-visible">
+                                <p>One day while we were struggling deciding what tools we <span style="font-style: italic;">really</span> want to see in <a href="https://whad.io">WHAD</a> ...</p>
+                            </div>
+                            <div class="fragment">
+                                <div style="height: 150px; display:flex; align-items: center; margin-top: .2em;">
+                                    <div style="height: 150px; width: 150px; display:flex; align-items: center; flex-shrink: 0;">
+                                        <img src="images/intro/philosoraptor.webp" style="width: 120px;">
+                                    </div>
+                                    <div style="height: 150px; display:flex; align-items: center;">
+                                        <blockquote
+                                        style="width: 90%; margin-left: 20px; font-size:0.75em; padding: 15px 15px 15px 15px; border: solid 1px #ccc; border-radius: 5px;">Can we describe a wireless attack as a combination of some basic bricks ?
+                                    </blockquote>
+                                    <img style="padding-left:50px;"  src="images/intro/lego_blueprint.png" width="150px"/>     
+                                    </div>
+                                </div>
+
+                            </div>
+                        </li>
+                        <li class="fragment">
+                            <div style="height: 150px; display:flex; align-items: center; margin-top: .5em;">
+                                <div style="height: 150px; width: 150px; display:flex; align-items: center; flex-shrink: 0;">
+                                    <img src="images/intro/flash.webp" style="width: 120px;">
+                                </div>
+                                <div style="height: 150px; display:flex; align-items: center;">
+                                    <blockquote
+                                    style="font-size:0.75em; width: 90%; margin-left: 20px; padding: 15px 15px 15px 15px; border: solid 1px #ccc; border-radius: 5px;">If so, we just need to make these basic bricks real ...
+                                    </blockquote>
+                                    <img style="padding-left:50px;"  src="images/intro/lego_bricks_vrac.png" width="150px"/>     
+
+                                </div>
+                            </div>
+                        </li>
+                        <li class="fragment">
+                            <div style="height: 150px; display:flex; align-items: center; margin-top: .5em;">
+                                <div style="height: 150px; width: 150px; display:flex; align-items: center; flex-shrink: 0;">
+                                    <img src="images/intro/mindblown.gif" style="width: 120px;">
+                                </div>
+                                <div style="height: 150px; display:flex; align-items: center;">
+                                    <blockquote
+                                    style="font-size:0.75em;width: 90%; margin-left: 20px; padding: 15px 15px 15px 15px; border: solid 1px #ccc; border-radius: 5px;">... and see how researchers use them to build cool tools or attacks !
+                                    </blockquote>
+                                    <img style="padding-left:50px;" src="images/intro/bugatti.jpg" width="400px"/>     
+
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- video hook -->
+                <section>
+                    <h2>Example: real-time Heart Rate monitoring !</h2>
+                    <br>
+                    <p>Implemented using 2 basic bricks !</p>
+                    <br>
+                    <div class="healthbar doto-900 intro "></div>
+                </section>
+
+                <!-- Systematization -->
+                <section data-healthbar>
+                    <section>
+                        <h2>A systematization of wireless attacks</h2>
+                    </section>
+
+                    <section>
+                        <h2>Methodology</h2><br>
+                        <ul>
+                            <li>Definition of a <b>threat model</b></li><br>
+                            <li><b>Analysis &amp; classification</b> of known wireless attacks</li><br>
+                            <li><b>Identification</b> of <u>11 unique <em>primitives</em></u></li>
+                        </ul><br>
+
+                        <!--
+                        <div style="height:160px; display: flex; align-items: center; border: solid 2px #ccc; border-radius: 5px; margin-top: 60px;">
+                            <div style="height:160px; display: flex; align-items: center; width: 100%;">
+                                <div style="display:block; position: relative; top: -60px; left: -60px; padding-left: 30px; font-size: 1.6em;">😔</div>
+                                <p>We had to do some trade-offs to limit the number of <em>primitives</em> and keep our models of wireless attacks simple enough.</p>
+                            </div>
+                        </div>-->
+                        
+                    </section>
+
+                    <section>
+                        <h2>Overview of the proposed primitives</h2>
+                        <br>
+                        <div id="primitives">
+                            <div id="layers">
+                                <div id="link" class="fragment" data-fragment-index="2">
+                                    <div id="link_title">🔗 Link Layer</div>
+                                    <div id="connect" class="ll fragment" data-fragment-index="3">Connect</div>
+                                    <div id="synchro" class="ll fragment" data-fragment-index="3">Synchro</div>
+                                    <div id="spoof" class="ll fragment" data-fragment-index="3">Spoofing</div>
+                                    <div id="jamming" class="ll fragment" data-fragment-index="3">Jamming</div>
+                                </div>
+                                <div id="phy" class="fragment" data-fragment-index="0">
+                                    <div id="phy_title">📡 PHY</div>
+                                    <div id="capture" class="phy fragment" data-fragment-index="1">📻 Capture</div>
+                                    <div id="inject" class="phy fragment" data-fragment-index="1">💉 Injection</div>
+                                </div>
+                            </div>
+                            <div id="generic">
+                                <div id="extract" class="primitive transverse fragment">
+                                    <div class="vertical"><i>🔎</i> Extraction</div>
+                                </div>
+                                <div id="transform" class="primitive transverse fragment">
+                                    <div class="vertical"><i>⚙️</i> Transform</div>
+                                </div>
+                                <div id="dump" class="primitive transverse fragment">
+                                    <div class="vertical"><i>💾</i> Dump</div>
+                                </div>
+                                <div id="replay" class="primitive transverse fragment">
+                                    <div class="vertical"><i>▶️</i> Replay</div>
+                                </div>
+                                <div id="forge" class="primitive transverse fragment">
+                                    <div class="vertical"><i>🔧</i> Forge</div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Combining primitives</h2>
+                        <br>
+                            <p style="margin-bottom: 10px;">Data flow matters ...</p>
+                            <img src="images/syst/data-flow.png" style="width: 70%;"/>
+                            <p style="margin-bottom: 10px;">... but also timing !</p>
+                            <img src="images/syst/timing-dep.png" style="width: 100%;"/>
+                    </section>
+
+                    <section>
+                        <h2>Modeling attacks:<br>some examples</h2>
+                    </section>
+
+                    <section>
+                        <h3>Bluetooth Mesh:<br>Arbitrary path injection</h3>
+                        <br>
+                        <img src="images/syst/blemesh-add-path.png" style="width: 90%;"/>
+                        <blockquote style="width: 100%;">&laquo;An attacker can create a path from any network node to another by sending a specifically crafted <em style="color: rgb(0, 64, 107);">PathRequest</em>&raquo;</blockquote>
+                    </section>
+
+                    <section>
+                        <h3>Bluetooth Mesh:<br>Forwarding table poisoning</h3>
+                        <img src="images/syst/blemesh-race.png" style="width: 80%; margin-bottom: -30px;"/>
+                        <blockquote style="width: 100%;">&laquo;An attacker can poison a PO's forwarding table by immediately responding to a <em>PathRequest</em> with a spoofed <em>PathReply</em>, racing the legitimate node.&raquo;</blockquote>
+                    </section>
+
+                    <section>
+                        <h3>Bluetooth LE:<br>Man-in-the-Middle</h3>
+                        <img src="images/syst/ble-mitm.png" style="width: 60%; margin-bottom: -30px; margin-top: -30px;"/>
+                        <blockquote style="width: 90%;">&laquo;An attacker can connect to a BLE device, advertise a spoofed one, wait for a connection and tamper with data.&raquo;</blockquote>
+                    </section>
+
+                    <section>
+                        <h2>Limits / constraints</h2><br>
+                        
+                        <ul style="list-style-type: none;">
+                            <li>
+                                <div style="display: flex; height: 150px; align-items: center;">
+                                    <div style="display: flex; align-items: center; ">
+                                        <img src="images/syst/packet_icon.png" style="width: 100px; padding-right: 30px;"/>
+                                        <div style="flex-shrink: 0;">
+                                            <b>Simplified representation</b> of the physical Layer
+                                        </div>
+                                    </div>
+                                </div>    
+                            </li>
+
+                            <li>
+                                <div style="display: flex; height: 150px; align-items: center;">
+                                    <div style="display: flex; align-items: center; ">
+                                        <img src="images/syst/role_icon.png" style="width: 100px; padding-right: 30px;"/>
+                                        <div style="flex-shrink: 0;">
+                                            <b><em>Node roles</em> have not been considered</b><br>to limit complexity
+                                        </div>
+                                    </div>
+                                </div>    
+                            </li>
+
+                            <li>
+                                <div style="display: flex; height: 150px; align-items: center;">
+                                    <div style="display: flex; align-items: center; ">
+                                        <img src="images/syst/network_icon.png" style="width: 100px; padding-right: 30px;"/>
+                                        <div style="flex-shrink: 0;">
+                                            <b>Abstract (& simplified) model</b> of <em>networks</em>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <!-- previous version 
+                        <div class="fragment" style="height:160px; display: flex; align-items: center; border: solid 2px #ccc; border-radius: 15px; margin-top: -60px;">
+                            <div style="height:160px; display: flex; align-items: center; width: 100%;">
+                                <img src="images/syst/packet_icon.png" style="scale:1;padding:30px;" />
+                                <p>Focus on a <em>simplified representation</em> of the physical layer (PDU as atomic element)</p>
+                            </div>
+                        </div>
+                        <div class="fragment" style="height:160px; display: flex; align-items: center; border: solid 2px #ccc; border-radius: 15px; margin-top: 10px;">
+                            <div style="height:160px; display: flex; align-items: center; width: 100%;">
+                                <img src="images/syst/role_icon.png" style="scale:1;padding:30px;" />
+                                <p>No specialization of systematization according to <em>node roles</em></p>
+                            </div>
+                        </div>
+                        <div class="fragment" style="height:160px; display: flex; align-items: center; border: solid 2px #ccc; border-radius: 15px; margin-top: 10px;">
+                            <div style="height:160px; display: flex; align-items: center; width: 100%;">
+                                <img src="images/syst/network_icon.png" style="scale:1;padding:30px;" />
+                                <p>Abstract (& simplified) model of  <em>networks</em></p>
+                            </div>
+                        </div> -->
+                        
+                    </section>
+                </section>
+
+                <!-- de la théorie à la pratique -->
+                <section data-healthbar>
+                    <section>
+                        <h2>From theory to field testing</h2>
+                        <small>because failure is always an option</small>
+                    </section>
+
+                    <section>
+                        <h2>Building our toolbox</h2>
+                        <ul style="list-style-type: none;">
+                            <li>
+                                <div style="display: flex; height: 150px; align-items: center;">
+                                    <div style="display: flex; align-items: center; ">
+                                        <img src="images/tools/gear.png" style="width: 50px; margin-left: 25px; margin-right: 25px; padding-right: 30px;"/>
+                                        <div style="flex-shrink: 0;">
+                                            Each <b>primitive</b> defines a <b>basic tool</b>
+                                        </div>
+                                    </div>
+                                </div>    
+                            </li>
+
+                            <li>
+                                <div style="display: flex; height: 150px; align-items: center;">
+                                    <div style="display: flex; align-items: center; ">
+                                        <img src="images/tools/gears.png" style="width: 100px; padding-right: 30px;"/>
+                                        <div style="flex-shrink: 0;">
+                                            Tools can be combined to <b>perform complex tasks</b>
+                                        </div>
+                                    </div>
+                                </div>    
+                            </li>
+
+                            <li>
+                                <div style="display: flex; height: 150px; align-items: center;">
+                                    <div style="display: flex; align-items: center; ">
+                                        <img src="images/tools/ralph.png" style="margin-left: 10px; margin-right: 10px; width: 80px; padding-right: 30px;"/>
+                                        <div style="flex-shrink: 0;">
+                                            <b>KISS</b>: <b>K</b>eep <b>I</b>t <b>S</b>imple <b>S</b>tupid !
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>Building a tool chain</h2><br>
+                        <code
+                            style="border: solid 1px #aaa; border-radius: 5px; padding: .3em .3em .3em .3em; font-size: smaller;">
+                            <span style="color: #111;">$&nbsp;</span><span style="color: #0066ff">tool1</span> <span style="color: #111; font-weight: bold;">|</span> <span style="color: #cc0099">tool2</span> <span style="color: #111; font-weight: bold;">|</span> <span style="color: #009933">tool3</span></code>
+                        <img style="margin-top: 1em; width: 70%;" src="images/tools/piping.png"/>
+                        <!--
+                        <ul style="list-style-type: none;">
+                            <li class="fragment">✅&nbsp;<b>KISS</b> compliant</li>
+                            <li class="fragment">✅&nbsp;Supports a sequence of actions</li>
+                            <li class="fragment">✅&nbsp;Data flows <b>both ways</b></li>
+                        </ul> -->
+                    </section>
+
+                    <section>
+                        <h2>Heavy use of Scapy</h2>
+                        <br>
+                        <ul>
+                            <li>Every PDU, packet or frame is a Scapy packet</li><br>
+                            <li>We added support for various protocols in <b>Scapy</b> (not yet upstreamed 🙄)</li><br>
+                            <li>Some of our tools allow packet manipulation with user-supplied Python code</li>
+                        </ul>
+                        <img src="images/scapy_logo.png" style="position: absolute; right: -3em; top: 2em; width: 200px; opacity:
+                        .8;"/>
+                    </section>
+
+                    <section>
+                        <h2>Field testing our tools</h2>
+                        <small>who said testing is doubting ?</small>
+                    </section>
+
+                    <section>
+                        <h2>Replay attack<br>on a 433MHz doorbell</h2>
+                        <img src="images/tools/replay-attack-model.png" style="width: 50%;"/><br>
+                        <div style="display:flex; align-items: center; width: 90%; height: 80px;">
+                        <div style="font-size: smaller; margin-right: 30px;">T<sub>0</sub>:</div><p style="border: solid 1px #aaa; border-radius: 5px; padding: .3em .3em .3em .3em; width: 100%; font-size: 16pt;font-family: 'DejaVu Sans Mono'; text-align: left; width: 90%;">
+                            <span style="color: #111;">$&nbsp;</span><span style="color: #293e7c">wsniff -i yard0 phy -f 433092000000 --ask -d 10000 </span><span style="color: #111; font-weight: bold;">|</span><br><span style="color: #6f2b00">↳ wdump doorbell-capture.pcap</span>
+                        </p></div>
+                        <div style="display:flex; align-items: center; width: 90%;">
+                            <div style="font-size: smaller; margin-right: 30px;">T<sub>1</sub>:</div><p style="border: solid 1px #aaa; border-radius: 5px; padding: .3em .3em .3em .3em; font-size: 16pt; font-family: 'DejaVu Sans Mono'; text-align: left; width: 90%;">
+                            <span style="color: #111;">$&nbsp;</span><span style="color: #6f2b00">wplay doorbell-capture.pcap </span><span style="color: #111; font-weight: bold;">|</span> <span style="color: #b01e66">winject -i yard0 phy
+                        </p></div>
+                    </section>
+
+                    <section>
+                        <video controls data-autoplay>
+                            <source src="videos/replay-doorbell.mp4" type="video/mp4"/>
+                        </video>
+                    </section>
+
+                    <section>
+                        <h2>Breaking weak encryption</h2>
+                        <img src="images/tools/rf4ce-crypto-attack-model.png" style="width: 90%; margin-top: 0; margin-bottom: 0;"/>
+                        <div style="display:flex; align-items: center; width: 90%; height: 80px;">
+                            <div style="font-size: smaller; margin-right: 30px;">T<sub>0</sub>:</div><p style="border: solid 1px #aaa; border-radius: 5px; padding: .3em .3em .3em .3em; width: 100%; font-size: 16pt;font-family: 'DejaVu Sans Mono'; text-align: left; width: 90%;">
+                                <span style="color: #111;">$&nbsp;</span><span style="color: #293e7c">wsniff -i uart0 rf4ce -c 15 </span><span style="color: #111; font-weight: bold;">|</span><span style="color: #f00"> wanalyze</span>
+                            </p></div>
+                            <div style="display:flex; align-items: center; width: 90%;">
+                                <div style="font-size: smaller; margin-right: 30px;">T<sub>1</sub>:</div><p style="border: solid 1px #aaa; border-radius: 5px; padding: .3em .3em .3em .3em; font-size: 16pt; font-family: 'DejaVu Sans Mono'; text-align: left; width: 90%;">
+                                <span style="color: #111;">$&nbsp;</span><span style="color: #293e7c">wsniff -i uart0 rf4ce -c 15 <span style="color: #f00">-d -k ENC_KEY</span> </span><span style="color: #111; font-weight: bold;">|</span><br>↳ <span style="color: #6f2b00">wdump rf4ce-cleartext.pcap
+                            </p></div>
+                    </section>
+
+                    <section>
+                        <video controls data-autoplay>
+                            <source src="videos/video-rf4ce.mp4" type="video/mp4"/>
+                        </video>
+                    </section>
+
+                    <section>
+                        <h2>Abusing BLE to dump a firmware</h2>
+                        <img src="images/tools/final-result.jpg" style="width: 500px;"/><br>
+                        <small><a
+                            href="https://blog.quarkslab.com/modern-tale-blinkenlights.html">https://blog.quarkslab.com/modern-tale-blinkenlights.html</a></small>
+                    </section>
+
+                    <section>
+                        <h2>or crashing a smartwatch</h2>
+                        <video controls data-autoplay>
+                            <source src="videos/gifi-ble-pwn.mp4" type="video/mp4"/>
+                        </video>
+                        
+                    </section>
+
+                    <section>
+                        <h2></h2>
+                    </section>
+
+                    <section>
+                        <h2>Creating new tools</h2>
+                        <br>
+                        <pre><code style="max-height: 380px !important; height: 380px;">from scapy.packet import Packet
+from whad.tools.user import user_transform
+
+def ingress(packet: Packet) -> Packet:
+    """Process packet received from previous tool"""
+    return packet
+
+def outgress(packet: Packet) -> Packet:
+    """Process a packet received from next tool"""
+    return packet
+
+if __name__ == "__main__":
+    user_transform(outgress, ingress)</code></pre>
+                    </section>
+
+                    <section>
+                        <h2>Decrypting Meshtastic packets</h2>
+                        <br>
+                        <img src="images/tools/custom-tool-model.png" style="width: 90%; margin-top: 0; margin-bottom: 0;"/>
+                        <p style="border: solid 1px #aaa; border-radius: 5px; padding: .3em .3em .3em .3em; width: 100%; font-size: 16pt; font-family: 'DejaVu Sans Mono'; text-align: left;">
+                            <span style="color: #111;">$&nbsp;</span><span style="color: #293e7c">wsniff -i uart0 phy --lora -f 869525000 -crc -em --preamble-length 8 <br>↳ -sf 11 -cr 45 -bw 250000 -w 28 </span><span style="color: #111; font-weight: bold;">|</span><br>↳</nr> <span style="color: #f00">python3 meshtastic-decrypt.py -k ENC_KEY <span style="color: #111; font-weight: bold;">|</span><br><span style="color: #6f2b00">↳ wdump meshtastic-decrypted.pcap</span>
+                        </p>
+                    </section>
+
+                    <section>
+                        <video controls data-autoplay>
+                            <source src="videos/meshtastic-decrypt.mp4" type="video/mp4"/>
+                        </video>
+                    </section>
+
+                    <section>
+                        <h2>Real-time HR monitoring</h2>
+                        <img src="images/tools/live-heart-rate-model.png" style="width: 90%; margin-top: 0; margin-bottom: 0;"/>
+                        <p style="border: solid 1px #aaa; border-radius: 5px; padding: .3em .3em .3em .3em;  font-size: 16pt; font-family: 'DejaVu Sans Mono'; text-align: left;">
+                            <span style="color: #111;">$&nbsp;</span><span style="color: #293e7c">wsniff -i rfstorm0 phy --gfsk --datarate 1000000 -w a6c5e81e <br>↳ -f 2457000000 -s 16 </span> <span style="color: #111; font-weight: bold;">|</span> <span style="color: #6f2b00"> wserver --json</span>
+                        </p>
+                        <pre><code style="font-size: 12pt;">function initHealthBar() {
+    const socket = new WebSocket('ws://localhost:12345');
+    socket.addEventListener('message', function (event) {
+        /* Extract HR value from packet. */
+        let packet = JSON.parse(event.data)["Phy_Packet"]
+        let value = parseInt(packet["data"].substr(28,2), 16);
+
+        /* Update HTML health bar using HR value. */
+        setNumber(value);
+    });
+}</code></pre>
+                    </section>
+
+                </section>
+
+                <section>
+                    <h2>The price for modularity</h2>
+                    <br>
+                    <ul style="list-style-type: none; width: 90%;">
+                        <li>
+                            <div style="display: flex; height: 150px; align-items: center;">
+                                <div style="display: flex; align-items: center;">
+                                    <img src="images/tools/pipe-mario.png" style="width: 100px;  padding-right: 30px;"/>
+                                    <div>
+                                        Complex piping <b>slows down debugging</b>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div style="display: flex; height: 150px; align-items: center;">
+                                <div style="display: flex; align-items: center; ">
+                                    <img src="images/tools/keys.png" style="width: 100px; padding-right: 30px;"/>
+                                    <div>
+                                        KISS approach <b>increases fragmentation</b>
+                                    </div>
+                                </div>
+                            </div>
+                        </li> 
+                        <li>
+                            <div style="display: flex; height: 150px; align-items: center;">
+                                <div style="display: flex; align-items: center; ">
+                                    <img src="images/tools/notkiss.png" style="width: 100px; padding-right: 30px;"/>
+                                    <div>
+                                        Some tools in WHAD are <b>multi-protocols</b> (<s>KISS</s>)
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Conclusion</h2>
+                    </section>
+                    
+                    <section>
+                        <h2>Systematization<br>of wireless attacks</h2>
+                        <br>
+                        <ul>
+                            <li><b>Never perfect</b> due to limits and constraints</li>
+                            <li>It helped us <b>getting a big picture of wireless attacks</b></li>
+                            <li><em>Primitives</em> helped us designing <b>efficient tools</b></li>
+                            <li>Can be improved, <em>please contribute</em> 🙏</li><br>
+                        </ul><br>
+                        <em>WHAD</em> provides <b>way more tools</b>, check it out !
+                    </section>
+
+                    <section>
+                        <h2>Huge thanks to our contributors</h2>
+                    </section>
+
+                    <section>
+                        <h2>And remember ...</h2>
+                        <br>
+                        <p>SSTIC's proceedings (<em>Les Actes</em>) contain a detailed description of our systematization, its <em>primitives</em> and attack models.</p>
+                    </section>
+                </section>
+
+                <section class="full-logos-bigger">
+                    <h2>Thank you, Q&A time !</h2>
+                    <br>
+                    <div style="float: left; width: 49%; text-align: left;">
+                        <p style="text-align: left !important;">Romain Cayre</p>
+                        <div style="border-left: #333 solid 1px; margin-left: 1em; margin-top: -20px; text-align: left;">
+                            <ul style="list-style-type: none; font-size: 18pt;">
+                                <li><i class="fa-solid fa-envelope emph inline"></i>&nbsp;&nbsp;&nbsp;<a href="mailto:rcayre@laas.fr">rcayre@laas.fr</a></li>
+                                <li><i class="fa-brands fa-mastodon emph inline"></i>&nbsp;&nbsp;&nbsp;<a href="https://infosec.exchange/@rcayre">@rcayre@infosec.exchange</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="float: left; width: 49%; text-align: left;">
+                        <p style="text-align: left !important;">Damien Cauquil</p>
+                        <div style="border-left: #333 solid 1px; margin-left: .5em; margin-top: -20px; text-align: left;">
+                            <ul style="list-style-type: none; font-size: 18pt;">
+                                <li><i class="fa-solid fa-envelope emph inline"></i>&nbsp;&nbsp;&nbsp;<a href="mailto:dcauquil@quarkslab.com">dcauquil@quarkslab.com</a></li>
+                                <li><i class="fa-brands fa-mastodon emph inline"></i>&nbsp;&nbsp;&nbsp;<a href="https://mamot.fr/@virtualabs">@virtualabs@mamot.fr</a></li>
+                            </ul>
+                        </div>
+                    </div><br><br>
+                </section>
+
+			</div>
+		</div>
+        <script src="dist/mermaid.js"></script>
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+                slideNumber: "c",
+                showSlideNumber: 'print',
+
+                // mermaid initialize config
+                mermaid: {
+                    look: "handDrawn",
+                    flowchart: {
+                        useMaxWidth: true,
+                    },
+                },
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMermaid ]
+			});
+		</script>
+        <script>
+            function initHealthBar() {
+                    const socket = new WebSocket('ws://localhost:12345');
+                    socket.addEventListener('open', function (event) {
+                        console.log('Connection Established');
+                    });
+
+                    socket.addEventListener('message', function (event) {
+                        value = parseInt(JSON.parse(event.data)["Phy_Packet"]["data"].substr(28,2), 16);
+                        console.log("RCVD: "  + value);
+                        setNumber(value);
+
+                    });
+            }
+            function setNumber(n) {
+                if (n < 60) i = 1;
+                else if (n >= 60 && n < 70) i = 2;
+                else if (n >= 70 && n < 80) i = 3;
+                else if (n >= 80 && n < 90) i = 4;
+                else i = 5;
+
+                const elmts = document.querySelectorAll('div.healthbar');
+                elmts.forEach(function(elmt) {
+                    elmt.style.backgroundPositionY = -82 * (5-i) + "px";
+                    elmt.innerText = n;
+                });
+            }
+
+            setNumber(80);
+            initHealthBar();
+        </script>
+	</body>
+</html>
