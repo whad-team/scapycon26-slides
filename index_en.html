@@ -91,64 +91,98 @@
                 </section>
 
                 <!-- video hook -->
+                <!--
                 <section>
                     <h2>Pwning with WHAD</h2>
                     <video controls data-autoplay>
                         <source src="videos/video-hook.mp4" type="video/mp4"/>
                     </video>
                 </section>
-
+                -->
                 <section>
-                    <h2>/why</h2>
-                    <ul style="list-style-type: none;">
-                        <li class="r-stack">
-                            <div class="fragment  current-visible">
-                                <p>One day while we were struggling deciding what tools we <span style="font-style: italic;">really</span> want to see in <a href="https://whad.io">WHAD</a> ...</p>
-                            </div>
-                            <div class="fragment">
-                                <div style="height: 150px; display:flex; align-items: center; margin-top: .2em;">
+                    <section>
+                        <h2>Why WHAD ?</h2>
+                        <br>
+                        <ul>
+                            <li><b>Portability</b>: design once, works with any compatible hardware</li><br>
+                            <li><b>Affordability</b>: relies on inexpensive <span style="font-style:
+                            italic;">off-the-shelf</span> hardware</li><br>
+                            <li><b>Flexibility</b>: Python and Scapy enables <b>rapid prototyping</b></li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Overview</h2>
+                        <br>
+                        <img src="images/intro/whad-overview.png">
+                    </section>
+                    <section>
+                        <h2>Compatible hardware</h2>
+                        <br>
+                        <img src="images/intro/compatible_hardware.webp">
+                    </section>
+                    <section>
+                        <h2>WHAD 💙 Scapy</h2>
+                        <br>
+                        <ul>
+                            <li>Every PDU, packet or frame is a Scapy packet</li><br>
+                            <li>We added support for various protocols in <b>Scapy</b> (not yet upstreamed 🙄)</li><br>
+                            <li>Some of our tools allow packet manipulation with user-supplied Python code</li>
+                        </ul>
+                        <img src="images/scapy_logo.png" style="position: absolute; right: -3em; top: 2em; width: 200px; opacity:
+                        .8;"/>
+                    </section>
+                    <section>
+                        <h2>Creating the <i>right</i> tools</h2>
+                        <ul style="list-style-type: none;">
+                            <li class="r-stack">
+                                <div class="fragment  current-visible">
+                                    <p>One day while we were struggling deciding what tools we <span style="font-style: italic;">really</span> want to see in <a href="https://whad.io">WHAD</a> ...</p>
+                                </div>
+                                <div class="fragment">
+                                    <div style="height: 150px; display:flex; align-items: center; margin-top: .2em;">
+                                        <div style="height: 150px; width: 150px; display:flex; align-items: center; flex-shrink: 0;">
+                                            <img src="images/intro/philosoraptor.webp" style="width: 120px;">
+                                        </div>
+                                        <div style="height: 150px; display:flex; align-items: center;">
+                                            <blockquote
+                                            style="width: 90%; margin-left: 20px; font-size:0.75em; padding: 15px 15px 15px 15px; border: solid 1px #ccc; border-radius: 5px;">Can we describe a wireless attack as a combination of some basic bricks ?
+                                        </blockquote>
+                                        <img style="padding-left:50px;"  src="images/intro/lego_blueprint.png" width="150px"/>     
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </li>
+                            <li class="fragment">
+                                <div style="height: 150px; display:flex; align-items: center; margin-top: .5em;">
                                     <div style="height: 150px; width: 150px; display:flex; align-items: center; flex-shrink: 0;">
-                                        <img src="images/intro/philosoraptor.webp" style="width: 120px;">
+                                        <img src="images/intro/flash.webp" style="width: 120px;">
                                     </div>
                                     <div style="height: 150px; display:flex; align-items: center;">
                                         <blockquote
-                                        style="width: 90%; margin-left: 20px; font-size:0.75em; padding: 15px 15px 15px 15px; border: solid 1px #ccc; border-radius: 5px;">Can we describe a wireless attack as a combination of some basic bricks ?
-                                    </blockquote>
-                                    <img style="padding-left:50px;"  src="images/intro/lego_blueprint.png" width="150px"/>     
+                                        style="font-size:0.75em; width: 90%; margin-left: 20px; padding: 15px 15px 15px 15px; border: solid 1px #ccc; border-radius: 5px;">If so, we just need to make these basic bricks real ...
+                                        </blockquote>
+                                        <img style="padding-left:50px;"  src="images/intro/lego_bricks_vrac.png" width="150px"/>     
+
                                     </div>
                                 </div>
+                            </li>
+                            <li class="fragment">
+                                <div style="height: 150px; display:flex; align-items: center; margin-top: .5em;">
+                                    <div style="height: 150px; width: 150px; display:flex; align-items: center; flex-shrink: 0;">
+                                        <img src="images/intro/mindblown.gif" style="width: 120px;">
+                                    </div>
+                                    <div style="height: 150px; display:flex; align-items: center;">
+                                        <blockquote
+                                        style="font-size:0.75em;width: 90%; margin-left: 20px; padding: 15px 15px 15px 15px; border: solid 1px #ccc; border-radius: 5px;">... and see how researchers use them to build cool tools or attacks !
+                                        </blockquote>
+                                        <img style="padding-left:50px;" src="images/intro/bugatti.jpg" width="400px"/>     
 
-                            </div>
-                        </li>
-                        <li class="fragment">
-                            <div style="height: 150px; display:flex; align-items: center; margin-top: .5em;">
-                                <div style="height: 150px; width: 150px; display:flex; align-items: center; flex-shrink: 0;">
-                                    <img src="images/intro/flash.webp" style="width: 120px;">
+                                    </div>
                                 </div>
-                                <div style="height: 150px; display:flex; align-items: center;">
-                                    <blockquote
-                                    style="font-size:0.75em; width: 90%; margin-left: 20px; padding: 15px 15px 15px 15px; border: solid 1px #ccc; border-radius: 5px;">If so, we just need to make these basic bricks real ...
-                                    </blockquote>
-                                    <img style="padding-left:50px;"  src="images/intro/lego_bricks_vrac.png" width="150px"/>     
-
-                                </div>
-                            </div>
-                        </li>
-                        <li class="fragment">
-                            <div style="height: 150px; display:flex; align-items: center; margin-top: .5em;">
-                                <div style="height: 150px; width: 150px; display:flex; align-items: center; flex-shrink: 0;">
-                                    <img src="images/intro/mindblown.gif" style="width: 120px;">
-                                </div>
-                                <div style="height: 150px; display:flex; align-items: center;">
-                                    <blockquote
-                                    style="font-size:0.75em;width: 90%; margin-left: 20px; padding: 15px 15px 15px 15px; border: solid 1px #ccc; border-radius: 5px;">... and see how researchers use them to build cool tools or attacks !
-                                    </blockquote>
-                                    <img style="padding-left:50px;" src="images/intro/bugatti.jpg" width="400px"/>     
-
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
+                            </li>
+                        </ul>
+                    </section>
                 </section>
 
                 <!-- video hook -->
@@ -361,7 +395,7 @@
                     </section>
 
                     <section>
-                        <h2>Building a tool chain</h2><br>
+                        <h2>Combining tools</h2><br>
                         <code
                             style="border: solid 1px #aaa; border-radius: 5px; padding: .3em .3em .3em .3em; font-size: smaller;">
                             <span style="color: #111;">$&nbsp;</span><span style="color: #0066ff">tool1</span> <span style="color: #111; font-weight: bold;">|</span> <span style="color: #cc0099">tool2</span> <span style="color: #111; font-weight: bold;">|</span> <span style="color: #009933">tool3</span></code>
@@ -374,17 +408,6 @@
                         </ul> -->
                     </section>
 
-                    <section>
-                        <h2>Heavy use of Scapy</h2>
-                        <br>
-                        <ul>
-                            <li>Every PDU, packet or frame is a Scapy packet</li><br>
-                            <li>We added support for various protocols in <b>Scapy</b> (not yet upstreamed 🙄)</li><br>
-                            <li>Some of our tools allow packet manipulation with user-supplied Python code</li>
-                        </ul>
-                        <img src="images/scapy_logo.png" style="position: absolute; right: -3em; top: 2em; width: 200px; opacity:
-                        .8;"/>
-                    </section>
 
                     <section>
                         <h2>Field testing our tools</h2>
@@ -545,6 +568,18 @@ if __name__ == "__main__":
                     </section>
                     
                     <section>
+                        <h2>Give WHAD a try!</h2>
+                        <br>
+                        <ul>
+                            <li>Need a <b>flexible library</b> to write a PoC?</li>
+                            <li>Want to play with packets <b>the Scapy way</b>?</li>
+                            <li>And create tools that <b>work on any compatible hardware</b>?</li>
+                        </ul>
+                        <br><br>
+                        <a href="https://whad.io">https://whad.io</a>
+                    </section>
+
+                    <section>
                         <h2>Systematization<br>of wireless attacks</h2>
                         <br>
                         <ul>
@@ -559,12 +594,14 @@ if __name__ == "__main__":
                     <section>
                         <h2>Huge thanks to our contributors</h2>
                     </section>
-
+                    
+                    <!-- 
                     <section>
                         <h2>And remember ...</h2>
                         <br>
                         <p>SSTIC's proceedings (<em>Les Actes</em>) contain a detailed description of our systematization, its <em>primitives</em> and attack models.</p>
                     </section>
+                    -->
                 </section>
 
                 <section class="full-logos-bigger">
