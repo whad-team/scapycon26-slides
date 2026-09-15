@@ -132,6 +132,21 @@
                         .8;"/>
                     </section>
                     <section>
+                        <h2>WHAD 💙 Scapy - examples</h2>
+                        <p>Example of IEEE802.15.4-TAP (DLT=287)</p>
+                        
+                        <img src="images/dltiee802154.png" style="width:80%"/><!-- style="position: absolute; right: -3em; top: 2em; width: 200px; opacity:
+                        .8;"/>-->
+                    </section>
+                    <section>
+                        <h2>WHAD 💙 Scapy - examples</h2>
+                        <p>Communication with RF hardware</p>
+                        
+                        <img src="images/scapy_hardware.png" style="width:80%"/><!-- style="position: absolute; right: -3em; top: 2em; width: 200px; opacity:
+                        .8;"/>-->
+                    </section>
+                    
+                    <section>
                         <h2>Creating the <i>right</i> tools</h2>
                         <ul style="list-style-type: none;">
                             <li class="r-stack">
@@ -469,13 +484,28 @@
                     </section>
 
                     <section>
+                      <h2>Poisoning Bluetooth Mesh Directed Forwarding</h2>
+                        <video controls data-autoplay>
+                            <source src="videos/a3_keyrefresh_scenario.webm" type="video/webm"/>
+                        </video>                    
+                    </section>
+
+
+
+                    <section>
+                      <h2>Desynchronizing Wireless Hart reception window</h2>
+                        <video controls data-autoplay>
+                            <source src="videos/wihart_ter.webm" type="video/webm"/>
+                        </video>                    
+                    </section>
+                    
+                    <section>
                         <h2>Using WHAD hardware from 800km away</h2>
                         <br>
                         <video controls data-autoplay>
                             <source src="videos/demo14-packets-over-wire.mp4" type="video/mp4"/>
                         </video>
                     </section>
-
 
                     <section>
                         <h2>Creating new tools</h2>
@@ -511,18 +541,33 @@ if __name__ == "__main__":
                     </section>
 
                     <section>
+                        <h2>Packets over the wire</h2>
+                        <br>
+                        <img src="images/whad-tcp-proxy.png" />
+                        <ul>
+                          <li><b>whadserver</b> exposes a WHAD device over TCP</li>
+                          <li>any tool can connect to a WHAD TCP server</li>
+                          <li>allow relay attacks (with some latency)</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <video controls data-autoplay>
+                            <source src="videos/remote_lightbulb.webm" />
+                        </video>
+                    </section>
+                    <section>
                         <h2>Real-time HR monitoring</h2>
                         <img src="images/tools/live-heart-rate-model.png" style="width: 90%; margin-top: 0; margin-bottom: 0;"/>
                         <p style="border: solid 1px #aaa; border-radius: 5px; padding: .3em .3em .3em .3em;  font-size: 16pt; font-family: 'DejaVu Sans Mono'; text-align: left;">
-                            <span style="color: #111;">$&nbsp;</span><span style="color: #293e7c">wsniff -i rfstorm0 phy --gfsk --datarate 1000000 -w a6c5e81e <br>↳ -f 2457000000 -s 16 </span> <span style="color: #111; font-weight: bold;">|</span> <span style="color: #6f2b00"> wserver --json</span>
+                            <span style="color: #111;">$&nbsp;</span><span style="color: #293e7c">wsniff -i uart0 ant</span> <span style="color: #111; font-weight: bold;">|</span> <span style="color: #6f2b00"> wserver --json --ws</span>
                         </p>
                         <pre><code style="font-size: 12pt;">function initHealthBar() {
     const socket = new WebSocket('ws://localhost:12345');
     socket.addEventListener('message', function (event) {
         /* Extract HR value from packet. */
-        let packet = JSON.parse(event.data)["Phy_Packet"]
-        let value = parseInt(packet["data"].substr(28,2), 16);
-
+        let packet = JSON.parse(event.data);
+        let value = parseInt(packet["ANT_HR_Common_Payload"]["computed_heart_rate"]);
         /* Update HTML health bar using HR value. */
         setNumber(value);
     });
@@ -696,10 +741,9 @@ if __name__ == "__main__":
                     });
 
                     socket.addEventListener('message', function (event) {
-                        value = parseInt(JSON.parse(event.data)["Phy_Packet"]["data"].substr(28,2), 16);
+                        value = parseInt(JSON.parse(event.data)["ANT_HR_Common_Payload"]["computed_heart_rate"]);
                         console.log("RCVD: "  + value);
                         setNumber(value);
-
                     });
             }
             function setNumber(n) {
